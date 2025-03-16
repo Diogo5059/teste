@@ -1,0 +1,427 @@
+/*=============
+  Google Fonts
+ =============*/
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Carrois+Gothic+SC&family=MonteCarlo&display=swap');
+
+/*=============
+ Default Styles
+ =============*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+    text-decoration: none;
+    list-style: none;
+}
+
+/*=============
+ Root Variables 
+ =============*/
+:root{
+    --main-color: #ff7878;
+    --black-color: #444444;
+    --gray-color: #67696c;
+    --bg-color: #fdd8f9;
+    --white-color: #fff;
+    --main-h: "Archivo Black", serif;
+    --second-h: "MonteCarlo", serif;
+    --text: "Carrois Gothic SC", serif;
+}
+
+/*============= 
+     Body  
+ =============*/
+
+ body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 85vh;
+    background-color: var(--bg-color);
+    position: relative;
+    font-family: var(--text);
+ }
+ 
+/*============= 
+     Header  
+ =============*/
+
+ .header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 60px;
+    position: absolute;
+    top: 0;
+    left: 0;
+ }
+ 
+/*============= 
+     Logo  
+ =============*/
+
+ .logo img{
+    width: 100px;
+ }
+ 
+/*============= 
+  Hero Section  
+ =============*/
+
+ .hero-section{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin-top: 80px;
+    position: relative;  
+    margin-left: 200px;
+ }
+ 
+/*============= 
+  Hero Content 
+ =============*/
+
+ .hero-content{
+    max-width: 50%;
+ }
+
+ h3{
+    font-size: 30px;
+    color: var(--black-color);
+    font-family: var(--second-h);
+ }
+ 
+/*============= 
+Outlined & Solid Text
+ =============*/
+
+ .text-container{
+    position: relative;
+    font-family: var(--main-h);
+ }
+
+ .solid-text{
+    font-size: 7rem;
+    font-weight: 700;
+    color: var(--main-color);
+    position: relative;
+ }
+ 
+ .outline-text{
+    margin-left: 15px;
+    font-size: 7rem;
+    font-weight: 700;
+    color: transparent;
+    -webkit-text-stroke: 2px var(--black-color);
+    
+    z-index: -1;
+ }
+
+ h5{
+    font-size: 16px;
+    color: var(--black-color);
+    margin-bottom: 10px;
+ }
+
+ p{
+    font-size: 14px;
+    color: var(--gray-color);
+    margin-bottom: 20px;
+ }
+
+/*============= 
+    Button  
+ =============*/
+ 
+ .btn-container{
+    position: relative;
+    display: inline-block;
+ }
+
+ .btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--main-color);
+    color: var(--black-color);
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 30px;
+    width: 80px;
+    height: 40px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.4);
+ }
+
+.btn::after{
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 40px;
+    border-radius: 30px;
+    border: 2px solid var(--black-color);
+    top: 5px;
+    z-index: -1;
+}
+/*============= 
+   Hero Image  
+ =============*/
+
+.hero-image{
+    margin-top: 20px;
+    margin-left: 1%;
+    max-width: 50%;
+}
+
+.hero-image img{
+    width: 100%;
+}
+
+/*============= 
+  Social Icons 
+ =============*/
+
+ .social-icons{
+    position: absolute;
+    right: -30px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+ }
+
+ .social-icons a{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: var(--black-color);
+    background: var(--white-color);
+    border-radius: 50%;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+ }
+
+ .social-icons a:hover{
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+    background-color: var(--main-color);
+ }
+ 
+/*============= 
+   menu icon
+ =============*/
+
+ .menu-icon{
+    font-size: 32px;
+    cursor: pointer;
+    position: absolute;
+ }
+
+/*============= 
+Header menu icon
+ =============*/
+
+ .header .menu-icon{
+    right: 20px;
+    display: none;
+ }
+ 
+/*============= 
+Hero menu icon
+ =============*/
+
+ .hero-section .menu-icon{
+    bottom: 50px;
+    right: -25px;
+ }
+ 
+/*============= 
+Navigation menu
+ =============*/
+
+ .navbar{
+    position: absolute;
+    background: var(--white-color);
+    border-radius: 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    display: none;
+    z-index: 1000;
+ }
+ 
+/*============= 
+Column-wise menu
+ =============*/
+
+.navbar.column{
+    top: -90px;
+    right: 50px;
+    display: flex;
+    padding: 60px;
+    flex-direction: column;
+    gap: 10px;
+} 
+ 
+/*============= 
+Row-wise menu
+ =============*/
+
+ .navbar.row{
+    bottom: 50px;
+    right: 50px;
+    flex-direction: row;
+    gap: 20px;
+    padding: 10px 30px;
+ }
+
+ .navbar ul{
+    display: flex;
+    gap: 10px;
+ }
+
+ .navbar.row ul{
+    flex-direction: row;
+ }
+
+ .navbar.column ul{
+    flex-direction: column;
+ }
+
+ .navbar ul li{
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--black-color);
+    padding: 8px 12px;
+    transition: background 0.3s ease, color 0.3s ease;
+    border-radius: 20px;
+    cursor: pointer;
+ }
+
+ .navbar ul li:hover{
+    background: var(--main-color);
+ }
+ 
+ 
+/*============= 
+Responsive Design 1024px
+ =============*/
+@media (max-width: 1024px) {
+    .hero-content{
+        max-width: 45%;
+    }
+
+    .hero-image{
+        max-width: 45%;
+    }
+
+    .outline-text, .solid-text{
+        font-size: 6rem;
+    }
+}
+
+/*============= 
+Responsive Design 768px
+ =============*/ 
+@media (max-width: 768px) {
+     .header{
+        padding: 50px 40px;
+        position: fixed;
+        width: 100%;
+        background: var(--bg-color);
+        z-index: 1000;
+     }
+
+    .navbar ul li{
+        font-size: 20px;
+        font-weight: bolder;
+        padding: 18px 24px;
+    } 
+
+    .hero-section{
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+        margin-top: 550px;
+    }
+
+    .header .menu-icon{
+        display: block;
+    }
+
+    .hero-section .menu-icon{
+        display: none;
+    }
+
+    .hero-section{
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+        margin-top: 550px;
+    }
+
+    .hero-content{
+        max-width: 90%;
+        z-index: 9;
+    }
+
+    .outline-text, .solid-text{
+        font-size: 8rem;
+    }
+
+    .outline-text{
+        top: -10px;
+        left: 110px;
+        z-index: -1;
+    }
+
+    h3{
+        font-size: 35px;
+    }
+
+    h5{
+        font-size: 20px;
+    }
+
+    p{
+        font-size: 18px;
+    }
+
+    .btn{
+        font-size: 19px;
+        width: 100px;
+        height: 60px;
+    }
+
+    .btn::after{
+        width: 100px;
+        height: 60px;
+    }
+
+    .hero-image{
+        max-width: 90%;
+    }
+
+    .menu-icon{
+        position: relative;
+    }
+    .social-icons {
+        position: relative; /* Remove absolute positioning */
+        top: -850px;
+        right: auto;
+        transform: none;
+        display: flex;
+        flex-direction: row; /* Display icons in a row */
+        justify-content: center;
+        gap: 15px;
+        margin-top: 20px; /* Add space below paragraph */
+    }
+}
