@@ -7,13 +7,18 @@ import { products } from '../data/products';
 
 function Products() {
   const location = useLocation();
-  const queryParams = new URLSearchParams(location.search);
+  const [queryParams, setQueryParams] = useState(new URLSearchParams(location.search));
   const categoryParam = queryParams.get('categoria');
   
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(categoryParam || 'todos');
   const [sortBy, setSortBy] = useState('relevancia');
   const [searchTerm, setSearchTerm] = useState('');
+  
+  // Atualizar queryParams quando location.search mudar
+  useEffect(() => {
+    setQueryParams(new URLSearchParams(location.search));
+  }, [location.search]);
   
   // Obter categorias únicas dos produtos
   const categories = ['todos', ...new Set(products.map(product => product.category))];
@@ -60,17 +65,19 @@ function Products() {
   
   // Atualizar URL quando a categoria mudar
   useEffect(() => {
+    const newQueryParams = new URLSearchParams(location.search);
+    
     if (selectedCategory === 'todos') {
-      queryParams.delete('categoria');
+      newQueryParams.delete('categoria');
     } else {
-      queryParams.set('categoria', selectedCategory);
+      newQueryParams.set('categoria', selectedCategory);
     }
     
-    const newSearch = queryParams.toString();
+    const newSearch = newQueryParams.toString();
     const newUrl = newSearch ? `${location.pathname}?${newSearch}` : location.pathname;
     
     window.history.replaceState({}, '', newUrl);
-  }, [selectedCategory, location.pathname]);
+  }, [selectedCategory, location.pathname, location.search]);
   
   return (
     <div className="container mx-auto px-4 py-8">
